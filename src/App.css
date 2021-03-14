@@ -1,38 +1,65 @@
 .App {
-  text-align: center;
+    margin: 20px auto;
+    text-align: center;
+    width: 80vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.GameBox {
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: 1px;
+    margin: auto;
+    max-width: 50vw;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Level, .GameOver {
+    padding-bottom: 15px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.HighScore {
+    max-width: 50vw;
+    margin: auto;
+    padding-bottom: 50px;
 }
 
-.App-link {
-  color: #61dafb;
+.HighScore > .Score {
+    display: grid;
+    grid-template-columns: 20% 1fr 20%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Score input {
+    width: 70%;
+    margin: auto;
+}
+
+.Score.Header {
+    padding-bottom: 5px;
+}
+
+.Score > .Name {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.RetryButton {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+}
+
+@media (max-device-width: 767px) {
+    .App, .GameBox {
+        max-width: 80vw;
+    }
+
+    .HighScore {
+        min-width: 60vw;
+    }
+}
+
+.Square:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
 }
