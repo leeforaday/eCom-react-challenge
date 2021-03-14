@@ -15,3 +15,6 @@ or
 
 `npm build` followed by `serve -s build` to deploy the app.
 Available at [http://localhost:5000](http://localhost:5000)
+
+### Notes
+The script the solves the game can be executed by clicking the button `Use script`

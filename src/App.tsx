@@ -63,6 +63,27 @@ const App = () => {
         }
     }
 
+    const findSolution = () => {
+        const squares = document.getElementsByClassName("Square") as HTMLCollectionOf<HTMLElement>;
+        const size = squares.length;
+        for (let i = 0; i < size-1; i++) {
+            let prevColor = squares[i].style.backgroundColor;
+            let currentColor = squares[i + 1].style.backgroundColor;
+            if (prevColor !== currentColor) {
+                if (i > 0) {
+                    squares[i + 1].click();
+                    break;
+                } else if (prevColor !== squares[i + 2].style.backgroundColor) {
+                    squares[i].click();
+                    break;
+                } else if (currentColor !== squares[i + 2].style.backgroundColor) {
+                    squares[i + 1].click();
+                    break;
+                }
+            }
+        }
+    }
+
     useEffect(() => {
         const localScores = localStorage.getItem(localStorageName);
         if (localScores) {
@@ -92,9 +113,11 @@ const App = () => {
                                     saveHighScore={saveNewHighScore}
                         />
                     </div>
-                    <button className="RetryButton" onClick={() => restartGame()}>Retry Game</button>
+                    <button onClick={() => restartGame()}>Retry Game</button>
                 </>
             }
+
+            {!gameOver && <button className="ScriptButton" onClick={() => findSolution()}>Use script</button>}
         </div>
     );
 }
