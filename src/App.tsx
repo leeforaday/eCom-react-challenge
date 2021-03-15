@@ -22,7 +22,6 @@ const App = () => {
             ];
         });
         setEndPosition(null);
-        localStorage.setItem(localStorageName, JSON.stringify(hallOfFame));
     }
 
     const restartGame = (): void => {
